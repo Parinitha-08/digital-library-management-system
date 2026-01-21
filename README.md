@@ -1,97 +1,72 @@
-# Digital Library Management System
+# 📚 Digital Library Management System
 
-A backend-focused Digital Library Management System built using Java and Spring Boot.  
-This project provides REST APIs to manage books, users, book issue/return flow, and automatic fine calculation using MySQL.
+A full-stack **Java Spring Boot** application with a clean, browser-based UI using **Thymeleaf**.  
+This project demonstrates backend development, MVC architecture, database integration, and UI rendering.
 
 ---
 
 ## 🚀 Features
 
-- Add and manage books
-- Register users
-- Issue books to users
-- Return books with fine calculation
-- RESTful APIs tested using Postman
-- MySQL database integration
-- Clean layered architecture
+- 🏠 Home dashboard
+- 📖 View all available books
+- ➕ Add new books
+- 📤 Issue books to users using dropdown selection
+- 🔄 Automatically updates available copies
+- 🎨 Clean and consistent UI across all pages
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-- Java 17+
+- Java 23
 - Spring Boot
-- Spring Data JPA (Hibernate)
+- Spring MVC
+- Spring Data JPA
+- Thymeleaf
 - MySQL
+- HTML, CSS
 - Maven
-- Postman
-- Git & GitHub
 
 ---
 
-## 📂 Project Structure
+## 🧱 Project Architecture
 
-src/main/java/com/pari/library
-│
-├── controller → REST controllers
-├── service → Business logic
-├── repository → JPA repositories
-├── model → Entity classes
-├── config → Security configuration
-└── DigitalLibraryApplication.java
+Controller Layer → Handles UI & API requests
+Service Layer → Business logic
+Repository Layer → Database operations
+UI Layer → Thymeleaf templates
 
 
 ---
 
-## 🔄 Core Functionalities
+## 🖥️ Application Pages
 
-### Issue Book
-- Checks availability of book copies
-- Decreases available copies
-- Stores issue date
-- Maps user and book relationship
+- **Home Page** – Navigation dashboard
+- **View Books** – Displays all books in a table
+- **Add Book** – Form to add new books
+- **Issue Book** – Dropdown-based book & user selection
 
-### Return Book
-- Updates return date
-- Increases available copies
-- Calculates fine after 7 days (₹10/day)
+⚠️ No manual ID typing required.
 
 ---
 
-## 📌 API Endpoints
-
-| Method | Endpoint               | Description              |
-|-------|------------------------|--------------------------|
-| GET   | `/books`               | Get all books            |
-| POST  | `/books`               | Add a new book           |
-| POST  | `/users`               | Register user            |
-| POST  | `/issue`               | Issue a book             |
-| PUT   | `/issue/return/{id}`   | Return issued book       |
-
----
-
-## 🗄 Database
-
-- MySQL
-- Tables auto-created using JPA
-- Proper relationships between User, Book, and IssuedBook entities
-
----
-
-## ▶️ How to Run Locally
+## ⚙️ How to Run Locally
 
 1. Clone the repository
-2. Create MySQL database:
-   ```sql
-   CREATE DATABASE digital_library;
+   ```bash
+   git clone https://github.com/Parinitha-08/digital-library-management-system.git
 
-Update application.properties with database credentials
+2. Open the project in IntelliJ IDEA
 
-Run the application
+3. Configure MySQL in application.properties
 
-Test APIs using Postman
+4. Run the application
+   mvn spring-boot:run
+
+5. Open browser:
+   http://localhost:8080/
 
 👩‍💻 Author
 
-Pari
-CSE Graduate | Java Backend Developer
+Parinitha (Pari)
+CSE Graduate | Java Full-Stack Developer
