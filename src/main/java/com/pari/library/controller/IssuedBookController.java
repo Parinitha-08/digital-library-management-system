@@ -21,6 +21,11 @@ public class IssuedBookController {
         return issuedBookService.issueBook(request.getUser(), request.getBook());
     }
 
+    @PutMapping("/return/{id}")
+    public IssuedBook returnBook(@PathVariable Long id) {
+        return issuedBookService.returnBook(id);
+    }
+
     // Inner DTO class
     static class IssueRequest {
         private User user;
