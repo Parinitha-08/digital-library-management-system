@@ -83,4 +83,29 @@ public class IssuedBookService {
 
         return issuedBookRepository.save(issuedBook);
     }
+
+    public IssuedBook issueBookByIds(Long userId, Long bookId) {
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found"));
+
+        if (book.getAvailableCopies() <= 0) {
+            throw new RuntimeException("No copies available");
+        }
+
+        book.setAvailableCopies(book.getAvailableCopies() - 1);
+        bookRepository.save(book);
+
+        IssuedBook issuedBook = new IssuedBook();
+        issuedBook.setUser(user);
+        issuedBook.setBook(book);
+        issuedBook.setIssueDate(LocalDate.now());
+        issuedBook.setFine(0);
+
+        return issuedBookRepository.save(issuedBook);
+    }
+
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Issue Book</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>📤 Issue Book</h2>
+
+    <form action="/issue-ui" method="post">
+
+        <select name="userId" required>
+            <option value="">Select User</option>
+            <option th:each="user : ${users}"
+                    th:value="${user.id}"
+                    th:text="${user.name}">
+            </option>
+        </select>
+
+        <select name="bookId" required>
+            <option value="">Select Book</option>
+            <option th:each="book : ${books}"
+                    th:value="${book.id}"
+                    th:text="${book.title}">
+            </option>
+        </select>
+
+        <button type="submit">Issue Book</button>
+    </form>
+
+    <a href="/">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

@@ -22,4 +22,13 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
+
+    public void addBookFromUi(String title, String author, int copies) {
+        Book book = new Book();
+        book.setTitle(title);
+        book.setAuthor(author);
+        book.setAvailableCopies(copies);
+        bookRepository.save(book);
+    }
+
 }
